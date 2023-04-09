@@ -17,11 +17,31 @@ shipping$destination_port <- gsub("Port of ", "", shipping$destination_port)
 
 shipping$shipment_date <- as.Date(shipping$shipment_date)
 
-# explore data
+shipping <- shipping |>
+  drop_na(destination_port, shipment_date)
 
+# explore data
 shipping |>
-  drop_na(destination_port) |>
   group_by(destination_port) |>
   count()
 
-# calculate volume
+shipping |>
+  group_by(name) |>
+  count()
+
+shipping |>
+  group_by(shipment_date, destination_port) |>
+  count()
+
+# calculate volume for items
+## Volume = L * W * H | in cubic meters (m3)
+shipping <- shipping |>
+  mutate(volume = length_m * width_m * height_m)
+
+# reefer container
+#
+# A refrigerated container or reefer is a shipping container used in intermodal freight transport
+# that is capable of refrigeration for the transportation of temperature-sensitive, perishable
+# cargo such as fruits, vegetables, meat, and other similar items.
+#
+# web scrape list of items that should be kept in reefers
