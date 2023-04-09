@@ -37,11 +37,3 @@ shipping |>
 ## Volume = L * W * H | in cubic meters (m3)
 shipping <- shipping |>
   mutate(volume = length_m * width_m * height_m)
-
-# reefer container
-#
-# A refrigerated container or reefer is a shipping container used in intermodal freight transport
-# that is capable of refrigeration for the transportation of temperature-sensitive, perishable
-# cargo such as fruits, vegetables, meat, and other similar items.
-#
-# web scrape list of items that should be kept in reefers
