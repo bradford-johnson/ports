@@ -37,3 +37,30 @@ shipping |>
 ## Volume = L * W * H | in cubic meters (m3)
 shipping <- shipping |>
   mutate(volume = length_m * width_m * height_m)
+
+
+
+
+# testing string matching -------------------------------------------------------------------------------- 
+# library(stringr)
+
+reefer <- read_csv("data/reefer.csv")
+
+words <- reefer$items
+shipping_names <- shipping$name
+
+# shipping <- shipping |>
+#   mutate(reefer = sapply(strsplit(words$words, " "), function(x) any(grepl(shipping$name, x))))
+
+
+shipping |>
+  filter(name %in% words) |>
+  group_by(name) |>
+  count()
+
+
+shipping_fil <- shipping[grepl(words[], shipping$name),]
+
+shipping_fil |>
+  group_by(name) |>
+  count()
