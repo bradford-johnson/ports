@@ -11,7 +11,7 @@ pacman::p_load(tidyverse,
                rvest)
 
 # site info
-url <- "https://www.searates.com/services/temperature/"
+url <- "{{secret_link}}"
 webpage <- read_html(url)
 
 # scrape data
