@@ -1,5 +1,5 @@
 # Ports
-data project on ports, shipping containers, and freight
+*project on ports, shipping containers, and freight*
 
 ## Data Sources
 - [Port Shipment Dataset](https://www.kaggle.com/datasets/mikoajfish99/port-of-los-angeles) | synthetic shipping dataset | provided by Kaggle user: `MIKOŁAJFISH99`
